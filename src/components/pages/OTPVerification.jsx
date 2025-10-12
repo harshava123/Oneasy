@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import logo from '../../assets/logo.png'
 
 function OTPVerification() {
   const navigate = useNavigate()
@@ -141,27 +142,26 @@ function OTPVerification() {
   }, [])
 
   return (
-    <div className="min-h-screen flex bg-gray-50">
-      {/* Left Side - Background Image Section */}
-      <div className="hidden lg:flex relative ml-6 mt-3 w-1/2 h-132">
-        <img
-          src="/src/assets/bg.png"
-          alt="Login Background"
-          className="w-full h-full object-contain rounded-l-3xl"
-        />
-      </div>
-
-      {/* Right Side - OTP Verification Section */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
-        <div className="w-full max-w-md">
-          {/* Logo */}
-          <div className="text-center mb-8">
-            <img 
-              src="/src/assets/logo.png" 
-              alt="OnEasy Logo" 
-              className="h-12 mx-auto"
+    <div className="h-screen bg-gray-100 flex items-center justify-center overflow-hidden">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-[600px] flex">
+        {/* Left Side - Image Section */}
+        <div className="w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
+          <div className="w-full h-[520px] rounded-3xl overflow-hidden">
+            <img
+              src="/src/assets/bg.png"
+              alt="Login Background"
+              className="w-full h-full object-fill"
             />
           </div>
+        </div>
+
+        {/* Right Side - OTP Verification Section */}
+        <div className="w-1/2 flex items-center justify-center p-8">
+          <div className="w-full max-w-sm">
+            {/* Logo */}
+            <div className="text-center mb-8">
+              <img src={logo} alt="OnEasy Logo" className="h-12 mx-auto" />
+            </div>
 
           {/* Main Heading */}
           <div className="text-center mb-8">
@@ -237,6 +237,7 @@ function OTPVerification() {
               </p>
             </div>
           </form>
+          </div>
         </div>
       </div>
     </div>

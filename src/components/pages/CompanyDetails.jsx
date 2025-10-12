@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import building from '../../assets/building.png';
+import documentsIllustration from '../../assets/OBJECTS.png';
 
 function CompanyDetails() {
   const { type } = useParams();
@@ -28,27 +29,57 @@ function CompanyDetails() {
     {
       id: 'registration',
       title: 'Private Limited Company Registration in India',
-      content: 'Starting a business in India often involves choosing a private limited company as the preferred business structure. This option provides limited liability protection for shareholders while maintaining specific ownership restrictions. Unlike an LLP where partners manage the business, a private limited company separates the roles of directors and shareholders.'
+        content: 'Starting a business in India often involves choosing a private limited company as the preferred business structure. This option provides limited liability protection for shareholders while maintaining specific ownership restrictions. Unlike an LLP where partners manage the business, a private limited company separates the roles of directors and shareholders.\n\nAt Oneasy, we offer cost-effective solutions for Private Limited Company registration, managing all legal formalities, and ensuring compliance with the Ministry of Corporate Affairs (MCA) regulations.'
     },
     {
       id: 'what-is',
       title: 'What is a Private Limited Company?',
-      content: 'A Private Limited Company is one of the most popular and trusted business structures in India, known for providing limited liability protection to its shareholders. It requires a minimum of two shareholders and two directors and allows easy ownership transferability while offering credibility in the business world. This structure is ideal for small to medium-sized businesses aiming for long-term growth.'
+      content: {
+        introduction: 'A Private Limited Company in India is a privately held entity with limited liability. It is one of the most popular business structures due to the following advantages:',
+        points: [
+          { title: 'Limited Liability Protection', description: 'Shareholders are only liable for the amount of their shareholding, safeguarding personal assets from company liabilities' },
+          { title: 'Separate Legal Entity', description: 'The company is considered a distinct legal entity, allowing it to own property, enter contracts, and initiate legal actions under its name' },
+          { title: 'Minimum Shareholders', description: 'A minimum of two shareholders is required, with a maximum of 200' },
+          { title: 'Minimum Directors', description: 'At least two directors are needed, with one being a resident Indian' },
+          { title: 'Minimum Capital', description: 'The company must have a minimum paid-up capital of ₹1 lakh' },
+          { title: 'Company Name', description: 'The name must end with "Private Limited."' },
+          { title: 'Restricted Share Transfer', description: 'Shares can only be transferred with approval from the Board of Directors' },
+          { title: 'No Public Invitation', description: 'The company cannot invite the public to subscribe to its shares or debentures' },
+          { title: 'Compliance Requirements', description: 'Proper financial records must be maintained, annual general meetings must be held, and annual returns must be filed with the ROC' }
+        ]
+      }
     },
     {
       id: 'types',
       title: 'Types of Private Limited Companies',
-      content: 'Different types of private limited companies cater to various business needs and structures.'
+      content: [
+        { title: 'Company Limited by Shares', description: 'Shareholders\' liability is limited to the amount mentioned in the Memorandum of Association' },
+        { title: 'Company Limited by Guarantee', description: 'Member liability is based on the guarantee specified in the Memorandum of Association' },
+        { title: 'Unlimited Companies', description: 'Members have unlimited personal liability for the company\'s debts' }
+      ]
     },
     {
       id: 'advantages',
       title: 'Advantages of a Private Limited Company',
-      content: 'Multiple benefits including limited liability, professional image, and easier access to funding.'
+      content: [
+        { title: 'Limited Liability', description: 'Shareholders\' personal assets are protected from the company\'s financial liabilities' },
+        { title: 'Distinct Legal Identity', description: 'The company has its own legal identity, separate from its owners' },
+        { title: 'Continuity', description: 'The company remains operational regardless of changes in shareholders or directors' },
+        { title: 'Ease of Fundraising', description: 'Private limited companies can raise capital through shares from investors or venture capitalists' },
+        { title: 'Tax Benefits', description: 'Certain tax benefits and exemptions are available' },
+        { title: 'Credibility', description: 'The "Private Limited" title adds credibility to the business' }
+      ]
     },
     {
       id: 'disadvantages',
       title: 'Disadvantages of a Private Limited Company',
-      content: 'Considerations including compliance requirements and initial setup costs.'
+      content: [
+        { title: 'Compliance Burden', description: 'Regulatory filings and audits can be time-consuming' },
+        { title: 'Complex Setup', description: 'Registration and management costs are higher than simpler business structures' },
+        { title: 'Restricted Share Transfer', description: 'Shares can\'t be easily transferred without approval' },
+        { title: 'Public Disclosure', description: 'Financial information is publicly available' },
+        { title: 'Complex Exit', description: 'Exiting the company can be complicated compared to other business structures' }
+      ]
     }
   ];
 
@@ -165,7 +196,7 @@ const packages = [
               {packages.map((pkg, index) => (
                 <div 
                   key={index} 
-                  className="relative rounded-3xl p-6 transition-all duration-300 cursor-pointer group bg-white hover:bg-[#01334C] shadow-sm"
+                  className="relative rounded-3xl p-6 transition-all duration-300 cursor-pointer group bg-white hover:bg-[#01334C] shadow-sm flex flex-col h-full"
                 >
                   <div className="w-10 h-10 rounded-full bg-red-500 text-white flex items-center justify-center mb-4 group-hover:bg-white group-hover:text-[#01334C] text-xl">
                     {pkg.icon}
@@ -183,7 +214,7 @@ const packages = [
                   <p className="text-sm text-gray-500 mb-6 group-hover:text-gray-300">
                     {pkg.description}
                   </p>
-                  <ul className="space-y-4 mb-8">
+                  <ul className="space-y-4 mb-8 flex-1">
                     {pkg.features.map((feature, i) => (
                       <li key={i} className="flex items-center space-x-3">
                         <div className="w-4 h-4 rounded-full bg-[#01334C] group-hover:bg-white flex items-center justify-center">
@@ -195,16 +226,16 @@ const packages = [
                       </li>
                     ))}
                   </ul>
-                         <button 
-                           onClick={() => {
-                             setActiveTab('process');
-                             setHidePackagesTab(true);
-                             window.scrollTo({ top: 0, behavior: 'smooth' });
-                           }}
-                           className="w-full py-3 rounded-lg font-medium transition-all duration-300 bg-[#01334C] text-white group-hover:bg-white group-hover:text-[#01334C]"
-                         >
-                           Get Started
-                         </button>
+                  <button 
+                    onClick={() => {
+                      setActiveTab('process');
+                      setHidePackagesTab(true);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="w-full py-3 rounded-lg font-medium transition-all duration-300 bg-[#01334C] text-white group-hover:bg-white group-hover:text-[#01334C] mt-auto"
+                  >
+                    Get Started
+                  </button>
                 </div>
               ))}
             </div>
@@ -214,7 +245,7 @@ const packages = [
       case 'process':
         return (
           <div className="mt-8 bg-white rounded-lg p-8">
-            <h2 className="text-2xl font-semibold mb-8">Steps for Company Registration in India</h2>
+            <h2 className="text-2xl font-semibold mb-8" style={{ color: '#00486D' }}>Steps for Company Registration in India</h2>
             
             {/* Steps List */}
             <div className="space-y-6 mb-8">
@@ -227,9 +258,36 @@ const packages = [
                   
                   {/* Step Icon */}
                   <div className="flex-shrink-0 w-8 h-8 bg-[#01334C] text-white rounded flex items-center justify-center mr-4 relative z-10">
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h12v8H4V6z" clipRule="evenodd" />
-                    </svg>
+                    {index === 0 && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                    {index === 1 && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )}
+                    {index === 2 && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h12v8H4V6z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                    {index === 3 && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                    {index === 4 && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                    {index === 5 && (
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    )}
                   </div>
                   
                   {/* Step Content */}
@@ -247,7 +305,7 @@ const packages = [
 
             {/* Certificate of Incorporation Section */}
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Certificate of Incorporation</h3>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: '#00486D' }}>Certificate of Incorporation</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Once the documents are verified, the MCA will issue the Certificate of Incorporation (COI) along with the Company Identification Number (CIN), Permanent Account Number (PAN) and Tax Deduction and Collection Account Number (TAN).
               </p>
@@ -255,7 +313,7 @@ const packages = [
 
             {/* Post-Registration Compliance Section */}
             <div className="mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Post-Registration Compliance</h3>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: '#00486D' }}>Post-Registration Compliance</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 After the company is registered, it's crucial to maintain compliance with annual filings and regulatory requirements to ensure smooth operations.
               </p>
@@ -263,7 +321,7 @@ const packages = [
 
             {/* Register Your Company with Oneasy Section */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Register Your Company with Oneasy</h3>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: '#00486D' }}>Register Your Company with Oneasy</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 At Oneasy, we provide expert support for Private Limited Company registration, ensuring a smooth and compliant process. We handle everything from document preparation to name reservation and compliance management, allowing you to focus on growing your business.
               </p>
@@ -271,17 +329,47 @@ const packages = [
           </div>
         );
 
+      case 'documents':
+        return (
+          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm">
+            <h2 className="text-2xl font-semibold mb-6" style={{ color: '#00486D' }}>Documents Required</h2>
+            <div className="flex flex-col md:flex-row justify-between items-start md:space-x-8">
+              <div className="flex-1 space-y-4 mb-8 md:mb-0">
+                {[
+                  'PAN Card of all Directors',
+                  'Aadhaar Card of all Directors',
+                  'Passport (only for Foreign Nationals)',
+                  'Bank Statement of all Directors (Recent)',
+                  'Photograph of all the Directors',
+                  'Rental Agreement and NOC (Company)',
+                  'Latest utility bill of the Company (Electricity Bill)'
+                ].map((doc, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-6 h-6 bg-[#01334C] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      {index + 1}
+                    </div>
+                    <p className="text-gray-700 text-base">{doc}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex-1 flex justify-center items-center">
+                <img src={documentsIllustration} alt="Documents Illustration" className="max-w-full h-auto" />
+              </div>
+            </div>
+          </div>
+        );
+
       case 'prerequisites':
         return (
-          <div className="mt-8">
-            <h2 className="text-2xl font-semibold mb-6">Pre-requisites</h2>
+          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm">
+            <h2 className="text-2xl font-semibold mb-6" style={{ color: '#00486D' }}>Pre-requisites</h2>
             <div className="space-y-4">
               {prerequisites.map((prerequisite, index) => (
                 <div key={index} className="flex items-start">
-                  <div className="flex-shrink-0 w-6 h-6 bg-slate-800 text-white rounded-full flex items-center justify-center mr-4 mt-0.5">
+                  <div className="flex-shrink-0 w-6 h-6 bg-[#00486D] text-white rounded-full flex items-center justify-center mr-4 mt-0.5 text-xs font-bold">
                     {index + 1}
                   </div>
-                  <p className="text-gray-700">{prerequisite}</p>
+                  <p className="text-gray-900">{prerequisite}</p>
                 </div>
               ))}
             </div>
@@ -318,7 +406,7 @@ const packages = [
                     onClick={() => setExpandedSection(expandedSection === section.id ? '' : section.id)}
                     className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors duration-200"
                   >
-                    <span className="font-medium text-gray-900">{section.title}</span>
+                    <span className="font-medium" style={{ color: '#00486D' }}>{section.title}</span>
                     <span className={`transform transition-transform duration-200 ${
                       expandedSection === section.id ? 'rotate-180' : ''
                     }`}>
@@ -328,23 +416,111 @@ const packages = [
                   
                   {expandedSection === section.id && (
                     <div className="px-6 py-4 bg-gray-50 border-t border-gray-100">
-                      {Array.isArray(section.content) ? (
+                      {section.content.introduction ? (
+                        <div className="space-y-4">
+                          <p className="text-gray-700 leading-relaxed">{section.content.introduction}</p>
+                          <div className="space-y-4">
+                            {section.content.points.map((item, index) => (
+                              <div key={index} className="flex items-start">
+                                <div className="flex-shrink-0 w-6 h-6 bg-[#00486D] text-white rounded-full flex items-center justify-center mr-4 mt-0.5 text-xs font-bold">
+                                  {index + 1}
+                                </div>
+                                <div className="flex-1">
+                                  <span className="font-medium text-gray-900">{item.title}:</span>
+                                  <span className="text-gray-900 ml-1">{item.description}</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      ) : Array.isArray(section.content) ? (
                         <div className="space-y-4">
                           {section.content.map((item, index) => (
                             <div key={index} className="flex items-start">
-                              <div className="flex-shrink-0 w-2 h-2 mt-2 bg-slate-800 rounded-full"></div>
-                              <div className="ml-4">
-                                <h4 className="font-medium text-gray-900">{item.title}</h4>
-                                <p className="mt-1 text-gray-600">{item.description}</p>
+                              <div className="flex-shrink-0 w-6 h-6 bg-[#00486D] text-white rounded-full flex items-center justify-center mr-4 mt-0.5 text-xs font-bold">
+                                {index + 1}
+                              </div>
+                              <div className="flex-1">
+                                <span className="font-medium text-gray-900">{item.title}:</span>
+                                <span className="text-gray-900 ml-1">{item.description}</span>
                               </div>
                             </div>
                           ))}
                         </div>
                       ) : (
-                        <p className="text-gray-600">{section.content}</p>
+                        <div className="space-y-4">
+                          {Array.isArray(section.content) ? (
+                            section.content.map((paragraph, index) => (
+                              <p key={index} className="text-gray-700 leading-relaxed">{paragraph}</p>
+                            ))
+                          ) : (
+                            <p className="text-gray-700 leading-relaxed whitespace-pre-line">{section.content}</p>
+                          )}
+                        </div>
                       )}
                     </div>
                   )}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+
+      case 'faq':
+        return (
+          <div className="mt-8 bg-white p-8 rounded-lg shadow-sm">
+            <h2 className="text-2xl font-semibold mb-6" style={{ color: '#00486D' }}>FAQs</h2>
+            <div className="space-y-6">
+              {[
+                {
+                  question: 'What is the minimum number of directors required to register a Private Limited Company?',
+                  answer: 'A minimum of two directors is required, and at least one must be a resident Indian citizen.'
+                },
+                {
+                  question: 'What is the maximum number of shareholders allowed in a Private Limited Company?',
+                  answer: 'A Private Limited Company can have a maximum of 200 shareholders.'
+                },
+                {
+                  question: 'Is there a minimum capital requirement for incorporating a Private Limited Company?',
+                  answer: 'There is no minimum paid-up capital requirement, but the authorized capital must be at least Rs. 1 lakh.'
+                },
+                {
+                  question: 'Can a foreign national be a director in a Private Limited Company in India?',
+                  answer: 'Yes, a foreign national can be a director, but at least one director must be an Indian resident.'
+                },
+                {
+                  question: 'How long does it take to register a Private Limited Company in India?',
+                  answer: 'The registration process typically takes 10-15 business days, depending on the processing time of the MCA.'
+                },
+                {
+                  question: 'What documents are needed for the incorporation of a Private Limited Company?',
+                  answer: 'The required documents include ID proof (PAN, Aadhaar), address proof (bank statement, utility bill), and office address proof (rental agreement or sale deed, NOC from property owner).'
+                },
+                {
+                  question: 'What are the compliance requirements after incorporation?',
+                  answer: 'Post-registration, companies must comply with annual filings, maintain financial records, and conduct board and general meetings regularly.'
+                },
+                {
+                  question: 'Can a Private Limited Company be converted into another business structure?',
+                  answer: 'Yes, a Private Limited Company can be converted into an LLP, public company, or other business structures, subject to regulatory approvals.'
+                },
+                {
+                  question: 'What is the role of a Director Identification Number (DIN)?',
+                  answer: 'A DIN is a unique identification number required for every director, issued by the MCA, and is mandatory for company incorporation.'
+                },
+                {
+                  question: 'Are there any restrictions on transferring shares in a Private Limited Company?',
+                  answer: 'Yes, shares in a Private Limited Company can only be transferred with the approval of the Board of Directors as per the company\'s Articles of Association.'
+                }
+              ].map((faq, index) => (
+                <div key={index} className="space-y-2">
+                  <div className="flex items-start">
+                    <span className="font-bold text-gray-900 mr-2">{index + 1}.</span>
+                    <p className="font-bold text-gray-900">{faq.question}</p>
+                  </div>
+                  <div className="ml-4">
+                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -362,38 +538,20 @@ const packages = [
         {/* Tabs */}
         <div className="bg-white border-b border-gray-200">
           <nav className="-mb-px flex justify-between items-center px-6">
-            <div className="flex space-x-12">
-              {visibleTabs.slice(0, -1).map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`
-                    whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
-                    ${activeTab === tab.id
-                      ? 'border-slate-800 text-slate-800'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
-                  `}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-            <div className="flex">
-              {visibleTabs.slice(-1).map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`
-                    whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
-                    ${activeTab === tab.id
-                      ? 'border-slate-800 text-slate-800'
-                      : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'}
-                  `}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+            {visibleTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`
+                  whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm
+                  ${activeTab === tab.id
+                    ? 'border-[#00486D] text-[#00486D]'
+                    : 'border-transparent text-gray-400 hover:text-gray-600 hover:border-gray-300'}
+                `}
+              >
+                {tab.label}
+              </button>
+            ))}
           </nav>
         </div>
 

@@ -105,7 +105,7 @@ function Registrations() {
                 {React.cloneElement(service.icon, { className: 'h-6 w-6' })}
               </div>
               <div>
-                <h3 className="text-lg font-medium text-gray-900 group-hover:text-white">{service.title}</h3>
+                       <h3 className="text-lg font-medium text-[#00486D] group-hover:text-white">{service.title}</h3>
                 <p className="mt-1 text-sm text-gray-500 group-hover:text-gray-200">{service.description}</p>
               </div>
             </div>

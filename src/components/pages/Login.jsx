@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import logo from '../../assets/logo.png'
 
 function Login() {
   const navigate = useNavigate()
@@ -98,33 +100,32 @@ function Login() {
     }
   }
   return (
-    <div className="min-h-screen flex bg-gray-50">
-      {/* Left Side - Background Image Section */}
-        <div className="hidden lg:flex relative ml-6 mt-3 w-1/2 h-132">
-          <img
-            src="/src/assets/bg.png"
-            alt="Login Background"
-            className="w-full h-full object-cover rounded-l-3xl"
-          />
-      </div>
-
-      {/* Right Side - Login Form Section */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
-        <div className="w-full max-w-md">
-          {/* Logo */}
-          <div className="text-center mb-8">
-            <img 
-              src="/src/assets/logo.png" 
-              alt="OnEasy Logo" 
-              className="h-12 mx-auto"
+    <div className="h-screen bg-gray-100 flex items-center justify-center overflow-hidden">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-[600px] flex">
+        {/* Left Side - Image Section */}
+        <div className="w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
+          <div className="w-full h-[520px] rounded-3xl overflow-hidden">
+            <img
+              src="/src/assets/bg.png"
+              alt="Login Background"
+              className="w-full h-full object-fill"
             />
           </div>
+        </div>
 
-          {/* Welcome Text */}
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-semibold text-gray-800 mb-2">Welcome Back</h2>
-            <p className="text-gray-600">Enter your email and password to access your account.</p>
-          </div>
+        {/* Right Side - Login Form Section */}
+        <div className="w-1/2 flex items-center justify-center p-8">
+          <div className="w-full max-w-sm">
+            {/* Logo */}
+            <div className="text-center mb-8">
+              <img src={logo} alt="OnEasy Logo" className="h-12 mx-auto" />
+            </div>
+
+            {/* Welcome Text */}
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Welcome Back</h2>
+              <p className="text-gray-600">Enter your email/phone number to sign in or create an account</p>
+            </div>
 
           {/* Error Message */}
           {error && (
@@ -145,7 +146,7 @@ function Login() {
                   <select 
                     value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
-                    className="h-12 px-3 border border-gray-300 rounded-l-lg bg-gray-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="h-12 px-3 border border-gray-300 rounded-l-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent"
                   >
                     <option value="+91">+91</option>
                     <option value="+1">+1</option>
@@ -157,8 +158,8 @@ function Login() {
                   id="phone"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="Enter your Phone Number"
-                  className="flex-1 h-12 px-4 border border-gray-300 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400"
+                  placeholder="Enter your phone number"
+                  className="flex-1 h-12 px-4 border border-gray-300 rounded-r-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent placeholder-gray-400"
                   disabled={isLoading}
                 />
               </div>
@@ -168,7 +169,7 @@ function Login() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 text-white font-medium py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 flex items-center justify-center"
+              className="w-full bg-[#01334C] hover:bg-[#00486D] disabled:bg-gray-400 text-white font-medium py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center"
             >
               {isLoading ? (
                 <>
@@ -189,7 +190,7 @@ function Login() {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-50 text-gray-500">Or</span>
+                <span className="px-2 bg-gray-50 text-gray-500">or</span>
               </div>
             </div>
 
@@ -198,7 +199,7 @@ function Login() {
               type="button"
               onClick={handleGoogleLogin}
               disabled={isLoading}
-              className="w-full bg-white hover:bg-gray-50 disabled:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center space-x-3"
+              className="w-full bg-white hover:bg-gray-50 disabled:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center space-x-3"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
@@ -221,6 +222,7 @@ function Login() {
               <span>{isLoading ? 'Signing In...' : 'Google'}</span>
             </button>
           </form>
+          </div>
         </div>
       </div>
     </div>
