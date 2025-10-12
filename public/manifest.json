@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/logo.png",
+      "src": "https://ui-avatars.com/api/?name=OnEasy&background=01334C&color=fff&size=192",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/logo.png",
+      "src": "https://ui-avatars.com/api/?name=OnEasy&background=01334C&color=fff&size=512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
