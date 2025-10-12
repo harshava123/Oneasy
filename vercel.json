@@ -1,39 +1,8 @@
 {
-  "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1",
-      "headers": {
-        "Content-Type": "application/javascript; charset=utf-8"
-      }
-    },
-    {
-      "src": "/(.*\\.js)",
-      "dest": "/$1",
-      "headers": {
-        "Content-Type": "application/javascript; charset=utf-8"
-      }
-    },
-    {
-      "src": "/(.*\\.css)",
-      "dest": "/$1",
-      "headers": {
-        "Content-Type": "text/css; charset=utf-8"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
