@@ -4,6 +4,7 @@
   "description": "Your one-stop platform for business registration and compliance services",
   "start_url": "/",
   "display": "standalone",
+  "display_override": ["window-controls-overlay"],
   "background_color": "#ffffff",
   "theme_color": "#01334C",
   "orientation": "portrait-primary",

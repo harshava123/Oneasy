@@ -60,8 +60,8 @@ function ReferralCode() {
   }
 
   return (
-    <div className="h-screen bg-white flex items-center justify-center overflow-hidden">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-auto md:h-[600px] flex flex-col md:flex-row">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-6xl h-auto md:h-[600px] flex flex-col md:flex-row">
         {/* Left Side - Image Section */}
         <div className="w-full md:w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
           <div className="w-full h-[300px] md:h-[520px] rounded-3xl overflow-hidden">

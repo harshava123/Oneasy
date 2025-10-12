@@ -101,31 +101,31 @@ function Login() {
     }
   }
   return (
-    <div className="h-screen bg-white flex items-center justify-center overflow-hidden">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-auto md:h-[600px] flex flex-col md:flex-row">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-6xl h-auto md:h-[600px] flex flex-col md:flex-row">
         {/* Left Side - Image Section */}
-        <div className="w-full md:w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
-          <div className="w-full h-[300px] md:h-[520px] rounded-3xl overflow-hidden">
+        <div className="w-full md:w-1/2 p-4 md:pl-6 md:pr-4 md:py-4 flex items-center justify-center">
+          <div className="w-full h-[280px] md:h-[520px] rounded-3xl overflow-hidden">
             <img
               src={bgImage}
               alt="Login Background"
-              className="w-full h-full object-cover md:object-fill"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
 
         {/* Right Side - Login Form Section */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-8">
+        <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8">
           <div className="w-full max-w-sm">
             {/* Logo */}
-            <div className="text-center mb-8">
-              <img src={logo} alt="OnEasy Logo" className="h-12 mx-auto" />
+            <div className="text-center mb-6">
+              <img src={logo} alt="OnEasy Logo" className="h-10 md:h-12 mx-auto" />
             </div>
 
             {/* Welcome Text */}
-            <div className="text-center mb-6 md:mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Welcome Back</h2>
-              <p className="text-sm md:text-base text-gray-600">Enter your email/phone number to sign in or create an account</p>
+            <div className="text-center mb-6">
+              <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
+              <p className="text-sm md:text-base text-gray-600">Enter your phone number to sign in or create an account</p>
             </div>
 
           {/* Error Message */}
@@ -136,7 +136,7 @@ function Login() {
           )}
 
             {/* Login Form */}
-            <form onSubmit={handlePhoneLogin} className="space-y-4 md:space-y-6">
+            <form onSubmit={handlePhoneLogin} className="space-y-4">
               {/* Phone Number Input */}
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
@@ -147,7 +147,7 @@ function Login() {
                     <select 
                       value={countryCode}
                       onChange={(e) => setCountryCode(e.target.value)}
-                      className="h-10 md:h-12 px-2 md:px-3 border border-gray-300 rounded-l-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent text-sm md:text-base"
+                      className="h-12 px-3 border border-gray-300 rounded-l-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent text-sm"
                     >
                       <option value="+91">+91</option>
                       <option value="+1">+1</option>
@@ -160,7 +160,7 @@ function Login() {
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                     placeholder="Enter your phone number"
-                    className="flex-1 h-10 md:h-12 px-3 md:px-4 border border-gray-300 rounded-r-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent placeholder-gray-400 text-sm md:text-base"
+                    className="flex-1 h-12 px-4 border border-gray-300 rounded-r-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent placeholder-gray-400 text-sm"
                     disabled={isLoading}
                   />
                 </div>
@@ -170,7 +170,7 @@ function Login() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-[#01334C] hover:bg-[#00486D] disabled:bg-gray-400 text-white font-medium py-2.5 md:py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center text-sm md:text-base"
+                className="w-full bg-[#01334C] hover:bg-[#00486D] disabled:bg-gray-400 text-white font-medium py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center text-sm"
               >
               {isLoading ? (
                 <>
@@ -186,12 +186,12 @@ function Login() {
             </button>
 
             {/* Separator */}
-            <div className="relative">
+            <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-50 text-gray-500">or</span>
+                <span className="px-2 bg-white text-gray-500">or</span>
               </div>
             </div>
 
@@ -200,7 +200,7 @@ function Login() {
                 type="button"
                 onClick={handleGoogleLogin}
                 disabled={isLoading}
-                className="w-full bg-white hover:bg-gray-50 disabled:bg-gray-100 text-gray-700 font-medium py-2.5 md:py-3 px-4 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center space-x-2 md:space-x-3 text-sm md:text-base"
+                className="w-full bg-white hover:bg-gray-50 disabled:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center space-x-3 text-sm"
               >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
@@ -220,7 +220,7 @@ function Login() {
                   d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                 />
               </svg>
-              <span>{isLoading ? 'Signing In...' : 'Google'}</span>
+              <span>{isLoading ? 'Signing In...' : 'Continue with Google'}</span>
             </button>
           </form>
           </div>
