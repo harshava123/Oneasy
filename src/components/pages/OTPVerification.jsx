@@ -143,21 +143,21 @@ function OTPVerification() {
   }, [])
 
   return (
-    <div className="h-screen bg-gray-100 flex items-center justify-center overflow-hidden">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-[600px] flex">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-auto md:h-[600px] flex flex-col md:flex-row">
         {/* Left Side - Image Section */}
-        <div className="w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
-          <div className="w-full h-[520px] rounded-3xl overflow-hidden">
+        <div className="w-full md:w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
+          <div className="w-full h-[300px] md:h-[520px] rounded-3xl overflow-hidden">
             <img
               src={bgImage}
               alt="Login Background"
-              className="w-full h-full object-fill"
+              className="w-full h-full object-cover md:object-fill"
             />
           </div>
         </div>
 
         {/* Right Side - OTP Verification Section */}
-        <div className="w-1/2 flex items-center justify-center p-8">
+        <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-8">
           <div className="w-full max-w-sm">
             {/* Logo */}
             <div className="text-center mb-8">
@@ -165,9 +165,9 @@ function OTPVerification() {
             </div>
 
           {/* Main Heading */}
-          <div className="text-center mb-8">
-            <h2 className="text-4xl font-semibold text-gray-800 mb-2">Verify Your Mobile</h2>
-            <p className="text-gray-600">
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-2xl md:text-4xl font-semibold text-gray-800 mb-2">Verify Your Mobile</h2>
+            <p className="text-sm md:text-base text-gray-600">
               We've sent a 4-digit OTP to {phoneNumber} via SMS
             </p>
           </div>
@@ -180,9 +180,9 @@ function OTPVerification() {
           )}
 
           {/* OTP Form */}
-          <form onSubmit={handleVerifyOtp} className="space-y-6">
+          <form onSubmit={handleVerifyOtp} className="space-y-4 md:space-y-6">
             {/* OTP Input Fields */}
-            <div className="flex justify-center space-x-3 mb-6">
+            <div className="flex justify-center space-x-2 md:space-x-3 mb-6">
               {otp.map((digit, index) => (
                 <input
                   key={index}
@@ -194,7 +194,7 @@ function OTPVerification() {
                   onChange={(e) => handleOtpChange(index, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(index, e)}
                   onPaste={index === 0 ? handlePaste : undefined}
-                  className="w-14 h-14 text-center text-2xl font-bold border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  className="w-12 h-12 md:w-14 md:h-14 text-center text-xl md:text-2xl font-bold border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
                   disabled={isLoading}
                 />
               ))}
@@ -204,7 +204,7 @@ function OTPVerification() {
             <button
               type="submit"
               disabled={isLoading || otp.join('').length !== 4}
-              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center"
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-2.5 md:py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center text-sm md:text-base"
             >
               {isLoading ? (
                 <>

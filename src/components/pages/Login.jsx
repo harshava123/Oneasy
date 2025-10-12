@@ -101,21 +101,21 @@ function Login() {
     }
   }
   return (
-    <div className="h-screen bg-gray-100 flex items-center justify-center overflow-hidden">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-[600px] flex">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-7xl h-auto md:h-[600px] flex flex-col md:flex-row">
         {/* Left Side - Image Section */}
-        <div className="w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
-          <div className="w-full h-[520px] rounded-3xl overflow-hidden">
+        <div className="w-full md:w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
+          <div className="w-full h-[300px] md:h-[520px] rounded-3xl overflow-hidden">
             <img
               src={bgImage}
               alt="Login Background"
-              className="w-full h-full object-fill"
+              className="w-full h-full object-cover md:object-fill"
             />
           </div>
         </div>
 
         {/* Right Side - Login Form Section */}
-        <div className="w-1/2 flex items-center justify-center p-8">
+        <div className="w-full md:w-1/2 flex items-center justify-center p-6 md:p-8">
           <div className="w-full max-w-sm">
             {/* Logo */}
             <div className="text-center mb-8">
@@ -123,9 +123,9 @@ function Login() {
             </div>
 
             {/* Welcome Text */}
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-3">Welcome Back</h2>
-              <p className="text-gray-600">Enter your email/phone number to sign in or create an account</p>
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Welcome Back</h2>
+              <p className="text-sm md:text-base text-gray-600">Enter your email/phone number to sign in or create an account</p>
             </div>
 
           {/* Error Message */}
@@ -135,43 +135,43 @@ function Login() {
             </div>
           )}
 
-          {/* Login Form */}
-          <form onSubmit={handlePhoneLogin} className="space-y-6">
-            {/* Phone Number Input */}
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                Phone Number
-              </label>
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <select 
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
-                    className="h-12 px-3 border border-gray-300 rounded-l-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent"
-                  >
-                    <option value="+91">+91</option>
-                    <option value="+1">+1</option>
-                    <option value="+44">+44</option>
-                  </select>
+            {/* Login Form */}
+            <form onSubmit={handlePhoneLogin} className="space-y-4 md:space-y-6">
+              {/* Phone Number Input */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone Number
+                </label>
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <select 
+                      value={countryCode}
+                      onChange={(e) => setCountryCode(e.target.value)}
+                      className="h-10 md:h-12 px-2 md:px-3 border border-gray-300 rounded-l-lg bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent text-sm md:text-base"
+                    >
+                      <option value="+91">+91</option>
+                      <option value="+1">+1</option>
+                      <option value="+44">+44</option>
+                    </select>
+                  </div>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    placeholder="Enter your phone number"
+                    className="flex-1 h-10 md:h-12 px-3 md:px-4 border border-gray-300 rounded-r-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent placeholder-gray-400 text-sm md:text-base"
+                    disabled={isLoading}
+                  />
                 </div>
-                <input
-                  type="tel"
-                  id="phone"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="Enter your phone number"
-                  className="flex-1 h-12 px-4 border border-gray-300 rounded-r-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:border-transparent placeholder-gray-400"
-                  disabled={isLoading}
-                />
               </div>
-            </div>
 
-            {/* Sign In Button */}
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full bg-[#01334C] hover:bg-[#00486D] disabled:bg-gray-400 text-white font-medium py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center"
-            >
+              {/* Sign In Button */}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full bg-[#01334C] hover:bg-[#00486D] disabled:bg-gray-400 text-white font-medium py-2.5 md:py-3 px-4 rounded-lg transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center text-sm md:text-base"
+              >
               {isLoading ? (
                 <>
                   <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -195,13 +195,13 @@ function Login() {
               </div>
             </div>
 
-            {/* Google Sign In Button */}
-            <button
-              type="button"
-              onClick={handleGoogleLogin}
-              disabled={isLoading}
-              className="w-full bg-white hover:bg-gray-50 disabled:bg-gray-100 text-gray-700 font-medium py-3 px-4 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center space-x-3"
-            >
+              {/* Google Sign In Button */}
+              <button
+                type="button"
+                onClick={handleGoogleLogin}
+                disabled={isLoading}
+                className="w-full bg-white hover:bg-gray-50 disabled:bg-gray-100 text-gray-700 font-medium py-2.5 md:py-3 px-4 rounded-lg border border-gray-300 transition duration-200 focus:outline-none focus:ring-2 focus:ring-[#01334C] focus:ring-offset-2 flex items-center justify-center space-x-2 md:space-x-3 text-sm md:text-base"
+              >
               <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"

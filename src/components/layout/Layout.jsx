@@ -5,9 +5,11 @@ import Footer from '../footer/Footer';
 import Routers from '../routers/Routers';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import { LogoutModalProvider } from '../common/LogoutModalContext';
+import { SidebarProvider, useSidebar } from '../common/SidebarContext';
 
 const MainLayout = () => {
   const location = useLocation();
+  const { isCollapsed } = useSidebar();
   const isAuthPage = location.pathname === '/' || 
                     location.pathname === '/verify-otp' || 
                     location.pathname === '/referral';
@@ -15,7 +17,7 @@ const MainLayout = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {!isAuthPage && <Sidebar />}
-      <div className={!isAuthPage ? "ml-64" : ""}> {/* ml-64 matches sidebar width */}
+      <div className={!isAuthPage ? `transition-all duration-300 ${isCollapsed ? 'lg:ml-[70px]' : 'lg:ml-60'}` : ""}> {/* Adjust margin based on sidebar state */}
         {!isAuthPage && <Header />}
         <main className="min-h-[calc(100vh-4rem)]"> {/* Adjust based on header height */}
           <Routers />
@@ -30,7 +32,9 @@ function Layout() {
   return (
     <Router>
       <LogoutModalProvider>
-        <MainLayout />
+        <SidebarProvider>
+          <MainLayout />
+        </SidebarProvider>
       </LogoutModalProvider>
     </Router>
   );

@@ -22,10 +22,10 @@ function Header() {
   }, []);
 
   return (
-    <header className="bg-white py-3 px-6 border-b border-gray-200">
+    <header className="bg-white py-3 px-4 md:px-6 border-b border-gray-200 relative">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left side - Search */}
-        <div className="w-64">
+        <div className="w-32 md:w-64 ml-16 md:ml-0">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <IoSearchOutline className="h-4 w-4 text-gray-400" />
@@ -33,17 +33,17 @@ function Header() {
             <input 
               type="text" 
               placeholder="Search" 
-              className="block w-full pl-9 pr-3 py-1.5 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-slate-800 focus:border-transparent"
+              className="block w-full pl-7 md:pl-9 pr-2 md:pr-3 py-1.5 text-xs md:text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-slate-800 focus:border-transparent"
             />
           </div>
         </div>
 
         {/* Right side - Actions */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-4">
           {/* Contact my POC Button */}
           <div className="relative">
             <button 
-              className="flex items-center space-x-2 bg-[#01334C] hover:bg-[#00486D] text-white px-3 py-1.5 rounded-lg transition-colors duration-200 text-sm"
+              className="hidden md:flex items-center space-x-2 bg-[#01334C] hover:bg-[#00486D] text-white px-3 py-1.5 rounded-lg transition-colors duration-200 text-sm"
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             >
               <img 
@@ -70,7 +70,7 @@ function Header() {
           </div>
 
           {/* Talk to Customer Care Button */}
-          <button className="flex items-center space-x-2 bg-white border border-[#01334C] text-[#01334C] px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-sm">
+          <button className="hidden sm:flex items-center space-x-2 bg-white border border-[#01334C] text-[#01334C] px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-sm">
             <BiSupport className="w-4 h-4" />
             <span>Talk to Customer Care</span>
           </button>
