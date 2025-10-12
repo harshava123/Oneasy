@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import logo from '../../assets/logo.png'
+import bgImage from '../../assets/bg.png'
 
 function ReferralCode() {
   const navigate = useNavigate()
@@ -65,7 +66,7 @@ function ReferralCode() {
         <div className="w-1/2 pl-4 pr-4 py-4 flex items-center justify-start">
           <div className="w-full h-[520px] rounded-3xl overflow-hidden">
             <img
-              src="/src/assets/bg.png"
+              src={bgImage}
               alt="Login Background"
               className="w-full h-full object-fill"
             />
